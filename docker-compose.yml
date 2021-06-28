@@ -18,13 +18,28 @@ services:
       MARIADB_PASSWORD: jc31d2qyy7h9jv5jn1u9uosjksxzaizw
     ports:
       - "3306:3306"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.3
 
 
   tomcat:
     build: service
     depends_on:
       - builder
+      - db
     ports: 
       - "8080:8080"
     volumes:
        - "data-vol:/opt/tomcat/webapps/"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.2
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/29
+         gateway: 10.5.0.1
