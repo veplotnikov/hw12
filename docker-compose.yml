@@ -16,6 +16,8 @@ services:
       MARIADB_DATABASE: dd
       MARIADB_USER: acp4pogynvaeidfj
       MARIADB_PASSWORD: jc31d2qyy7h9jv5jn1u9uosjksxzaizw
+    ports:
+      - "3306:3306"
 
 
   tomcat:
