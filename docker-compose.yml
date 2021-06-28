@@ -8,7 +8,7 @@ services:
     volumes:
       - "data-vol:/opt/tomcat/latest/webapps"
     
-    db:
+  db:
     image: mariadb
     restart: always
     environment:
